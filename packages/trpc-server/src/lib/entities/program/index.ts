@@ -10,3 +10,4 @@ export const programSchema = z.object({
 export type Program = z.infer<typeof programSchema>
 export const programConnectionQueryParamSchema = getConnectionQueryParamsSchema()
   .optional()
+git remote add origin git@github.com:quirkles/nx-poc.git
