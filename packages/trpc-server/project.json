@@ -2,32 +2,61 @@
   "name": "trpc-server",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/trpc-server/src",
-  "projectType": "library",
+  "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
+      "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
+        "platform": "node",
         "outputPath": "dist/packages/trpc-server",
-        "main": "packages/trpc-server/src/index.ts",
-        "tsConfig": "packages/trpc-server/tsconfig.lib.json",
-        "assets": ["packages/trpc-server/*.md"]
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "packages/trpc-server/src/main.ts",
+        "tsConfig": "packages/trpc-server/tsconfig.app.json",
+        "assets": ["packages/trpc-server/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
       }
     },
     "serve": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
       "options": {
-        "command": "npx nx run trpc-server:build"
+        "runBuildTargetDependencies": true,
+        "buildTarget": "trpc-server:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "trpc-server:build:development"
+        },
+        "production": {
+          "buildTarget": "trpc-server:build:production"
+        }
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/trpc-server/**/*.ts",
-          "packages/trpc-server/package.json"
-        ]
+        "lintFilePatterns": ["packages/trpc-server/**/*.ts"]
       }
     },
     "test": {

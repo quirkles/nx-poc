@@ -17,7 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@copilot/trpc-client": ["packages/trpc-client/src/index.ts"],
-      "@copilot/trpc-server": ["packages/trpc-server/src/index.ts"]
+      "@copilot/trpc-router": ["packages/trpc-router/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

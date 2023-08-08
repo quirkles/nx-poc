@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'trpc-backend-e2e',
+  displayName: 'trpc-server-e2e',
   preset: '../..//jest.preset.js',
   setupFiles: ['<rootDir>/src/test-setup.ts'],
   testEnvironment: 'node',
@@ -13,5 +13,5 @@ export default {
     ],
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../..//coverage/trpc-backend-e2e',
+  coverageDirectory: '../..//coverage/trpc-server-e2e',
 };

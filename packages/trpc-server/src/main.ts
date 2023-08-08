@@ -1,6 +1,6 @@
 import { createHTTPServer } from '@trpc/server/adapters/standalone';
 
-import {appRouter} from "@copilot/trpc-server";
+import {appRouter} from "@copilot/trpc-router";
 
 import cors from 'cors';
 

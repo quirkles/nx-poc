@@ -1,12 +1,12 @@
 {
-  "name": "trpc-backend-e2e",
+  "name": "trpc-server-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "targets": {
     "e2e": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
       "options": {
-        "jestConfig": "packages/trpc-backend-e2e/jest.config.ts",
+        "jestConfig": "packages/trpc-server-e2e/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -14,7 +14,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/trpc-backend-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["packages/trpc-server-e2e/**/*.{js,ts}"]
       }
     }
   }

@@ -1,6 +1,6 @@
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 
-import type {AppRouter} from "@copilot/trpc-server";
+import type {AppRouter} from "@copilot/trpc-router";
 
 console.log('dews')
 export const trpcProxyClient = createTRPCProxyClient<AppRouter>({
